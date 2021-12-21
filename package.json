@@ -7,11 +7,16 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
-    "express": "^4"
+    "@sap/xssec": "^3.2.11",
+    "express": "^4",
+    "hdb": "^0.18.3"
   },
   "devDependencies": {
     "@sap/ux-specification": "^9.9.9-20211215154751",
     "sqlite3": "^5.0.2"
+  },
+  "engines": {
+    "node": "^16"
   },
   "scripts": {
     "start": "cds run",
@@ -46,5 +51,19 @@
   "sapux": [
     "app/risks",
     "app/mitigations"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sql"
+      },
+      "uaa": {
+        "kind": "xsuaa",
+        "credentials": {}
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  }
 }
